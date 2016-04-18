@@ -1,0 +1,24 @@
+
+RegionServer
+---------------------------------------------------------------
+
+   #  StoreFiles
+      +  RegionServer manages data in its Store files
+      +  1 RegionServer normally runs per node
+      
+  #   Ports
+      +  Uses 2 ports
+      +  Default ports
+         -  16020 (Note : The HRegionServer is also HMaster including 9 backup HMasters)
+         -  16030     
+      +  Base ports for running additional HRegionServers
+         -  16202
+         -  16302
+         
+   #  99 Servers
+      +  Can be run excluding HMaster base & Backup
+      
+      
+   #  Command
+      +   .bin/local-regionservers.sh start 2 3 4 5
+      +  .bin/local-regionservers.sh stop 3

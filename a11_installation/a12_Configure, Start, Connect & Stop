@@ -1,0 +1,59 @@
+ 
+ General
+---------------------------------------------------------------
+
+   #  In Standalone mode, all the daemons run in single JVM
+      +  HMaster
+      +  HRegionServer
+      +  Zookeeper 
+ 
+ hbase-site.xml
+---------------------------------------------------------------
+    <property>
+         <name>hbase.rootdir</name>
+         <value>file:///Users/raj/workingdir/hbase/hbase</value>
+     </property>
+   
+     <property>
+         <name>hbase.zookeeper.property.dataDir</name>
+         <value>/Users/raj/workingdir/hbase/zookeeper</value>
+     </property>
+     
+     <!-- Set the port zookeeper server will run -->
+     <!-- The default port is 2181. But changing it as it is used by Kafka Zookeeper -->
+     <property>
+         <name>hbase.zookeeper.property.clientPort</name>
+         <value>3181</value>
+     </property>
+     
+Start Hbase
+---------------------------------------------------------------
+
+   $bin/start-hbase.sh
+      starting master, logging to /Users/raj/Desktop/installations/hbase-1.1.2/bin/../logs/hbase-raj-master-Rajkumars-MacBook-Pro.local.out
+
+   $jps
+      7303 HMaster
+      7384 Jps  
+      
+   $netstat -an | grep -i '3181'
+      tcp46      0      0  *.3181                 *.*                    LISTEN   
+
+Connect to Hbase
+---------------------------------------------------------------
+
+   $./bin/hbase shell
+      Version 1.1.2, rcc2b70cf03e3378800661ec5cab11eb43fafe0fc, Wed Aug 26 20:11:27 PDT 2015
+      hbase(main):001:0>
+
+Stop Hbase
+---------------------------------------------------------------
+   
+   #  bin/stop-hbase.sh
+   #  jps
+         +  Should not list HMaster & HRegionServer
+         
+         
+   
+         
+         

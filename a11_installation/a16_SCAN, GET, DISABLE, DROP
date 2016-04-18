@@ -1,0 +1,42 @@
+          
+SCAN
+------------------------------------------------------------------
+    
+   #  Is used to retrieve records from table
+   
+   #  Example
+      +  scan 'test'
+      
+         ROW                            COLUMN+CELL
+         row1                          column=cf:a, timestamp=1445014656159, value=value1
+         something2                    column=cf:d, timestamp=1445014811997, value=value7
+         2 row(s) in 0.0090 seconds
+GET
+------------------------------------------------------------------
+   
+   #  Is used to get single row at a time
+   
+   #  Syntax
+      +  get '<table name>', '<row name>'
+      
+   #  Example
+      +  get 'test', 'row1'
+         COLUMN                         CELL
+         cf:a                          timestamp=1445014656159, value=value1      
+
+DISABLE / ENABLE
+------------------------------------------------------------------
+  
+   #  In order to delete, change the setting of the table,
+      the table needs to be disabled first
+      
+   #  Example
+      +  disable 'test'
+      
+DROP
+------------------------------------------------------------------
+    
+   #  Once 'disable'ed the table can be dropped
+   
+   #  Example
+      +  drop 'test'   

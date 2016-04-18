@@ -1,0 +1,30 @@
+
+HMaster
+---------------------------------------------------------------------------
+
+   #  HMaster server controls the Hbase Cluster
+   #  A single HMaster uses Three ports
+   #  Default ports are,
+      +  16010
+      +  16020
+      +  16030
+      
+Backup HMasters
+---------------------------------------------------------------------------
+ 
+   #  Up to 9 Backup HMasters can be started(Excluding the Primary)
+   
+   #  Example  (2 Backup HMasters)
+      +  ./bin/local-master-backup.sh 2 5
+         -  1st Backup uses port : 16012, 16022, 16032
+         -  2nd Backup uses port : 16015, 16025, 16035      
+         
+         ./bin/local-master-backup.sh 2 5 (**Command not working)
+         Usage: hbase-daemon.sh [--config <conf-dir>] (start|stop|restart|autorestart|foreground_start)
+         <hbase-command> <args...>
+            
+   #  Stopping Backup HMaster
+   
+      +  PID can be identified in /tmp/hbase-USER-X-master.pid
+      +  Example
+         -  cat /tmp/hbase-testuser-1-master.pid |xargs kill -9

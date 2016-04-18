@@ -1,0 +1,48 @@
+
+General
+-------------------------------------------------------------------
+
+   #  In pseudo distributed mode all the daemons run in a separate
+      JVM
+      +  HMaster
+      +  HRegionServer
+      +  Zookeeper
+
+hbase-site.xml
+-------------------------------------------------------------------
+
+   <property>
+       <name>hbase.rootdir</name>
+       <value>hdfs://localhost:9000/hbase</value>
+   </property>
+
+   <property>
+      <name>hbase.cluster.distributed</name>
+      <value>true</value>
+   </property>
+
+  <property>
+      <name>hbase.zookeeper.property.dataDir</name>
+      <value>/Users/raj/workingdir/hbase/zookeeper</value>
+  </property>
+
+Starting Hbase
+-------------------------------------------------------------------
+
+   #  bin/start-hbase.sh
+   #  jps
+         16115 HMaster
+         16220 HRegionServer
+         16062 HQuorumPeer    Is a Zookeeper Instance controlled & started by HBase
+         
+   #  hdfs dfs -ls /hbase
+         drwxr-xr-x   - raj supergroup          0 2015-10-16 14:03 /hbase/.tmp
+         drwxr-xr-x   - raj supergroup          0 2015-10-16 14:03 /hbase/MasterProcWALs
+         drwxr-xr-x   - raj supergroup          0 2015-10-16 14:03 /hbase/WALs
+         drwxr-xr-x   - raj supergroup          0 2015-10-16 14:03 /hbase/data
+         -rw-r--r--   1 raj supergroup         42 2015-10-16 14:03 /hbase/hbase.id
+         -rw-r--r--   1 raj supergroup          7 2015-10-16 14:03 /hbase/hbase.version
+         drwxr-xr-x   - raj supergroup          0 2015-10-16 14:03 /hbase/oldWALs
+         
+   #  ls hbase/
+         zookeeper   

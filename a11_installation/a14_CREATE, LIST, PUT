@@ -1,0 +1,39 @@
+
+CREATE
+---------------------------------------------------------------
+
+   #  Is used to creat a table      
+
+   #  Syntax
+      +  create '<table name>' '<Column family name>'
+  
+   #  Example
+      > create 'test', 'cf'
+         => Hbase::Table - test
+         
+LIST
+---------------------------------------------------------------
+    
+   #  Is used to list information about a table
+   
+   #  Example
+      > list 'test'
+         test
+         1 row(s) in 0.0160 seconds
+
+         => ["test"]      
+
+PUT
+---------------------------------------------------------------
+
+   #  Is use to add data into table
+   
+   #  Syntax
+      put '<table name>', '<Row name/ID>', '<Column family>:<Column Name>', '<value>'
+      
+   #  Example
+         put 'test', 'row1', 'cf:a', 'value1'      
+         put 'test', 'something2', 'cf:d', 'value7'
+               
+      
+        
